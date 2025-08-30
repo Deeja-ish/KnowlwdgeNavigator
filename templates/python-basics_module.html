@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Basics | Knowledge Navigator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Knowledge Navigator</h1>
+            <div class="user-info">
+                <span>Welcome, {{ username }}!</span>
+                <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="module-content">
+        <a href="{{ url_for('modules_page') }}" class="back-btn">&larr; Back to Modules</a>
+        <h2>Python Basics</h2>
+        <p class="module-intro">Python is a versatile and easy-to-learn programming language. This module will introduce you to its core concepts, allowing you to write your first programs.</p>
+        
+        <div class="module-section">
+            <h3>1. Variables and Data Types</h3>
+            <p>In Python, a **variable** is a container that stores data. There are different kinds of data, called **data types**, such as `strings` (text), `integers` (whole numbers), and `booleans` (True/False).</p>
+        </div>
+        
+        <div class="module-section">
+            <h3>2. Control Flow</h3>
+            <p>Control flow allows you to tell your program what decisions to make. The most common tools are **if/elif/else statements**, which run code based on a condition, and **loops** (like `for` and `while`), which repeat a block of code.</p>
+        </div>
+        
+        <div class="module-section">
+            <h3>3. Functions</h3>
+            <p>A **function** is a reusable block of code that performs a specific task. Defining your own functions helps you organize your code and avoid repeating yourself. Python also has many built-in functions, like `print()` to display output.</p>
+        </div>
+        
+        <div class="module-section">
+            <h3>4. Data Structures</h3>
+            <p>Python provides built-in **data structures** to organize your data. The most common are **lists** (ordered collections of items) and **dictionaries** (collections of key-value pairs).</p>
+        </div>
+        
+        <div class="ai-assistant-section">
+            <h3>Ask the Knowledge Navigator AI!</h3>
+            <p>Confused about a concept? Ask the AI to explain it in a simpler way. Just type your question below.</p>
+            <form action="/ai-explain" method="POST">
+                <input type="text" name="question" placeholder="e.g., What is a 'for' loop?" required>
+                <button type="submit"><i class="fas fa-magic"></i> Get Explanation</button>
+            </form>
+            <div id="ai-response-container" class="ai-response">
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Knowledge Navigator. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

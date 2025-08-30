@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History of Art | Knowledge Navigator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Knowledge Navigator</h1>
+            <div class="user-info">
+                <span>Welcome, {{ username }}!</span>
+                <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="module-content">
+        <a href="{{ url_for('modules_page') }}" class="back-btn">&larr; Back to Modules</a>
+        <h2>History of Art</h2>
+        <p class="module-intro">This premium module is a journey through time, exploring how art has evolved and reflected human culture, beliefs, and emotions from ancient civilizations to the modern day.</p>
+        
+        <div class="module-section">
+            <h3>1. The Renaissance (c. 1300s - 1600s)</h3>
+            <p>The **Renaissance** was a "rebirth" of art and learning, originating in Italy. It was characterized by a focus on humanism, realism, and perspective. Key artists from this period include Leonardo da Vinci, Michelangelo, and Raphael, who created masterpieces like the Mona Lisa and the frescoes in the Sistine Chapel.</p>
+        </div>
+        
+        <div class="module-section">
+            <h3>2. Impressionism (c. 1870s - 1880s)</h3>
+            <p>**Impressionism** was a revolutionary movement that broke away from traditional art. Artists like Claude Monet and Edgar Degas focused on capturing the fleeting impression of a scene, often painting outdoors to show the effects of light and color with visible brushstrokes.</p>
+        </div>
+        
+        <div class="module-section">
+            <h3>3. Post-Impressionism (c. 1880s - 1900s)</h3>
+            <p>Following Impressionism, **Post-Impressionists** like Vincent van Gogh and Paul Cézanne used bold colors and emotional expression rather than strict realism. Van Gogh’s "The Starry Night" is a famous example of this movement's expressive style.</p>
+        </div>
+        
+        <div class="module-section">
+            <h3>4. Modern Art (20th Century)</h3>
+            <p>Modern art encompasses a wide range of movements, including **Cubism**, led by Pablo Picasso, which broke objects into geometric shapes; and **Surrealism**, which explored the subconscious mind through dreamlike imagery.</p>
+        </div>
+        
+        <div class="ai-assistant-section">
+            <h3>Ask the Knowledge Navigator AI!</h3>
+            <p>Confused about a concept? Ask the AI to explain it in a simpler way. Just type your question below.</p>
+            <form action="/ai-explain" method="POST">
+                <input type="text" name="question" placeholder="e.g., What is Cubism?" required>
+                <button type="submit"><i class="fas fa-magic"></i> Get Explanation</button>
+            </form>
+            <div id="ai-response-container" class="ai-response">
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Knowledge Navigator. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

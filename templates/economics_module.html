@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundations of Economics | Knowledge Navigator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Knowledge Navigator</h1>
+            <div class="user-info">
+                <span>Welcome, {{ username }}!</span>
+                <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="module-content">
+        <h2>Foundations of Economics</h2>
+        <p class="module-intro">Economics is the study of how people make choices about scarce resources. It’s a field that helps us understand everything from the price of a loaf of bread to why countries trade with each other.</p>
+        
+        <div class="module-section">
+            <h3>Scarcity: The Core Problem</h3>
+            <p>At the heart of all economics is the concept of **scarcity**. This means that human wants are unlimited, but the resources available to satisfy them are limited. Because of this, we must make choices, and every choice has a cost.</p>
+        </div>
+        
+        <div class="module-section">
+            <h3>Supply and Demand</h3>
+            <p>One of the most fundamental concepts in economics is the relationship between **supply** and **demand**. Supply is how much of a good or service is available, while demand is how much people want it. When demand for something is high and supply is low, the price goes up. When supply is high and demand is low, the price goes down.</p>
+        </div>
+        
+        <div class="module-section">
+            <h3>The Role of Money</h3>
+            <p>Money serves three main purposes in an economy: it's a **medium of exchange**, a **unit of account**, and a **store of value**. It makes it easier to trade and measure the value of things without having to barter for goods and services.</p>
+        </div>
+
+        <div class="ai-assistant-section">
+            <h3>Ask the Knowledge Navigator AI!</h3>
+            <p>Confused about a concept? Ask the AI to explain it in a simpler way. Just type your question below.</p>
+            <form action="/ai-explain" method="POST">
+                <input type="text" name="question" placeholder="e.g., What is inflation?" required>
+                <button type="submit"><i class="fas fa-magic"></i> Get Explanation</button>
+            </form>
+            <div id="ai-response-container" class="ai-response">
+                </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Knowledge Navigator. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

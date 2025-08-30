@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Physics Explained | Knowledge Navigator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Knowledge Navigator</h1>
+            <div class="user-info">
+                <span>Welcome, {{ username }}!</span>
+                <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="module-content">
+        <a href="{{ url_for('modules_page') }}" class="back-btn">&larr; Back to Modules</a>
+        <h2>Quantum Physics Explained</h2>
+        <p class="module-intro">This premium module dives into the bizarre and fascinating world of quantum mechanics, the science that describes the behavior of matter and energy at the smallest possible scales.</p>
+        
+        <div class="module-section">
+            <h3>1. The Wave-Particle Duality</h3>
+            <p>In the quantum world, tiny particles like electrons can behave like both a **particle** and a **wave**. This concept, known as **wave-particle duality**, is one of the most fundamental and mind-bending ideas in quantum physics.</p>
+        </div>
+        
+        <div class="module-section">
+            <h3>2. Superposition and Measurement</h3>
+            <p>**Superposition** is the idea that a particle can exist in multiple states at the same time. For example, an electron can be in a state of both "spin up" and "spin down" simultaneously. This bizarre state collapses into a single outcome only when we **measure** it.</p>
+        </div>
+        
+        <div class="module-section">
+            <h3>3. Quantum Entanglement</h3>
+            <p>**Quantum entanglement** is when two or more particles are linked in such a way that they share the same fate, no matter how far apart they are. Measuring the state of one particle instantly affects the state of the other, as if they are communicating faster than the speed of light.</p>
+        </div>
+        
+        <div class="module-section">
+            <h3>4. Heisenberg's Uncertainty Principle</h3>
+            <p>The **Uncertainty Principle** states that you cannot know both the exact position and the exact momentum of a particle at the same time. The more accurately you measure one, the less precisely you can know the other. It's a fundamental limit on our ability to know everything about a particle.</p>
+        </div>
+        
+        <div class="ai-assistant-section">
+            <h3>Ask the Knowledge Navigator AI!</h3>
+            <p>Confused about a concept? Ask the AI to explain it in a simpler way. Just type your question below.</p>
+            <form action="/ai-explain" method="POST">
+                <input type="text" name="question" placeholder="e.g., What is an electron?" required>
+                <button type="submit"><i class="fas fa-magic"></i> Get Explanation</button>
+            </form>
+            <div id="ai-response-container" class="ai-response">
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Knowledge Navigator. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

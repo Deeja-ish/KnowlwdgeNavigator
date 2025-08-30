@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Never-Ending Water Cycle | Knowledge Navigator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Knowledge Navigator</h1>
+            <div class="user-info">
+                <span>Welcome, {{ username }}!</span>
+                <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="module-content">
+        <a href="{{ url_for('modules_page') }}" class="back-btn">&larr; Back to Modules</a>
+        <h2>The Never-Ending Water Cycle</h2>
+        <p class="module-intro">The water cycle is the continuous process by which water moves around, through, and above the Earth. It's how our planet's water supply is recycled and cleaned for all life to use.</p>
+        
+        <div class="module-section">
+            <h3>1. Evaporation</h3>
+            <p>**Evaporation** is the process where liquid water on the Earth's surface turns into a gas, called water vapor. The Sun's energy heats up water in oceans, lakes, and rivers, causing it to rise into the atmosphere.</p>
+        </div>
+        
+        <div class="module-section">
+            <h3>2. Condensation</h3>
+            <p>As water vapor rises, it cools down and changes back into tiny liquid water droplets or ice crystals. This process is called **condensation**. These tiny droplets clump together, forming clouds in the sky.</p>
+        </div>
+        
+        <div class="module-section">
+            <h3>3. Precipitation</h3>
+            <p>When the clouds become too full of water droplets, they release the water back to Earth in the form of rain, snow, sleet, or hail. This is known as **precipitation**.</p>
+        </div>
+        
+        <div class="module-section">
+            <h3>4. Collection</h3>
+            <p>After precipitation, water either soaks into the ground to become groundwater or flows over the ground as runoff. It eventually collects in rivers, lakes, oceans, and other bodies of water, ready for the cycle to begin again. This stage is called **collection**.</p>
+        </div>
+        
+        <div class="ai-assistant-section">
+            <h3>Ask the Knowledge Navigator AI!</h3>
+            <p>Confused about a concept? Ask the AI to explain it in a simpler way. Just type your question below.</p>
+            <form action="/ai-explain" method="POST">
+                <input type="text" name="question" placeholder="e.g., What is transpiration?" required>
+                <button type="submit"><i class="fas fa-magic"></i> Get Explanation</button>
+            </form>
+            <div id="ai-response-container" class="ai-response">
+                </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Knowledge Navigator. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Essentials | Knowledge Navigator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Knowledge Navigator</h1>
+            <div class="user-info">
+                <span>Welcome, {{ username }}!</span>
+                <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="module-content">
+        <a href="{{ url_for('modules_page') }}" class="back-btn">&larr; Back to Modules</a>
+        <h2>Cybersecurity Essentials</h2>
+        <p class="module-intro">This module introduces you to the world of digital security, teaching you how to protect your personal information and computer systems from common threats.</p>
+        
+        <div class="module-section">
+            <h3>1. The CIA Triad</h3>
+            <p>Cybersecurity is built on three core principles: **Confidentiality**, ensuring data is only accessed by authorized users; **Integrity**, ensuring data has not been altered; and **Availability**, ensuring data and systems are accessible when needed.</p>
+        </div>
+        
+        <div class="module-section">
+            <h3>2. Common Threats</h3>
+            <p>Digital threats come in many forms. **Phishing** attacks trick you into giving up personal information. **Malware** is malicious software, like viruses and ransomware. **DDoS attacks** overwhelm a system with traffic to shut it down.</p>
+        </div>
+        
+        <div class="module-section">
+            <h3>3. Defending Your Systems</h3>
+            <p>You can protect yourself by using strong, unique passwords, enabling two-factor authentication, keeping your software up to date, and being cautious of suspicious emails and links.</p>
+        </div>
+        
+        <div class="ai-assistant-section">
+            <h3>Ask the Knowledge Navigator AI!</h3>
+            <p>Confused about a concept? Ask the AI to explain it in a simpler way. Just type your question below.</p>
+            <form action="/ai-explain" method="POST">
+                <input type="text" name="question" placeholder="e.g., What is ransomware?" required>
+                <button type="submit"><i class="fas fa-magic"></i> Get Explanation</button>
+            </form>
+            <div id="ai-response-container" class="ai-response">
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Knowledge Navigator. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

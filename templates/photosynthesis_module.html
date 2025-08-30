@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photosynthesis Module | Knowledge Navigator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Knowledge Navigator</h1>
+            <div class="user-info">
+                <span>Welcome, {{ username }}!</span>
+                <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="module-content">
+        <h2>The Science of Photosynthesis</h2>
+        <p class="module-intro">Photosynthesis is the process used by plants, algae, and certain bacteria to turn sunlight into chemical energy. It's a fundamental process for all life on Earth.</p>
+        
+        <div class="module-section">
+            <h3>The Recipe: Ingredients for Photosynthesis</h3>
+            <p>For photosynthesis to occur, plants need three key ingredients:</p>
+            <ul>
+                <li><strong>Carbon Dioxide ($CO_2$)</strong>: Absorbed from the air through tiny pores in the leaves called stomata.</li>
+                <li><strong>Water ($H_2O$)</strong>: Absorbed from the soil through the plant's roots.</li>
+                <li><strong>Sunlight</strong>: The energy source that powers the entire process.</li>
+            </ul>
+        </div>
+        
+        <div class="module-section">
+            <h3>The Kitchen: The Role of Chlorophyll</h3>
+            <p>The "kitchen" where this all happens is a special pigment in plant cells called **chlorophyll**. Chlorophyll is what gives plants their green color and, most importantly, is responsible for absorbing sunlight.</p>
+        </div>
+        
+        <div class="module-section">
+            <h3>The Product: Sugar and Oxygen</h3>
+            <p>The final products of photosynthesis are:</p>
+            <ul>
+                <li><strong>Glucose (Sugar)</strong>: A simple sugar ($C_6H_{12}O_6$) that the plant uses for food and energy.</li>
+                <li><strong>Oxygen ($O_2$)</strong>: A waste product for the plant, but essential for animal and human life. This is why we rely so heavily on plants!</li>
+            </ul>
+        </div>
+        
+        <div class="ai-assistant-section">
+            <h3>Ask the Knowledge Navigator AI!</h3>
+            <p>Confused about a concept? Ask the AI to explain it in a simpler way. Just type your question below.</p>
+            <form action="/ai-explain" method="POST">
+                <input type="text" name="question" placeholder="e.g., What is chlorophyll?" required>
+                <button type="submit"><i class="fas fa-magic"></i> Get Explanation</button>
+            </form>
+            <div id="ai-response-container" class="ai-response">
+                </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Knowledge Navigator. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

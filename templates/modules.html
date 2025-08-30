@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modules | Knowledge Navigator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Knowledge Navigator</h1>
+            <div class="user-info">
+                <span>Welcome, {{ username }}!</span>
+                <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- <main class="modules-container">
+        <h2>Learning Modules</h2>
+        <p>Choose a topic to begin your journey to knowledge.</p>
+
+        <div class="module-list">
+            {% for module in modules %}
+            <a href="{{ url_for('module_page', slug=module.slug) }}" class="module-card">
+                <div class="card-icon"><i class="fas fa-leaf"></i></div>
+                <div class="card-content">
+                    <h3>{{ module.title }}</h3>
+                    <p>{{ module.description }}</p>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </main> -->
+
+    <main class="modules-container">
+    <h2>Learning Modules</h2>
+    <p>Choose a topic to begin your journey to knowledge.</p>
+
+    <div class="module-list">
+        {% for module in modules %}
+        <a href="{{ url_for('module_page', slug=module.slug) }}" class="module-card">
+            <div class="card-icon">
+                {% if module.is_premium %}
+                    <i class="fas fa-lock"></i>
+                {% else %}
+                    <i class="fas fa-leaf"></i>
+                {% endif %}
+            </div>
+            <div class="card-content">
+                <h3>{{ module.title }}
+                    {% if module.is_premium %}
+                        <span class="pro-badge">PRO</span>
+                    {% endif %}
+                </h3>
+                <p>{{ module.description }}</p>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</main>
+
+    <footer>
+        <p>&copy; 2025 Knowledge Navigator. All rights reserved.</p>
+    </footer>
+</body>
+</html>

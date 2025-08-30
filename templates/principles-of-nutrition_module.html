@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principles of Nutrition | Knowledge Navigator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Knowledge Navigator</h1>
+            <div class="user-info">
+                <span>Welcome, {{ username }}!</span>
+                <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="module-content">
+        <a href="{{ url_for('modules_page') }}" class="back-btn">&larr; Back to Modules</a>
+        <h2>Principles of Nutrition</h2>
+        <p class="module-intro">Nutrition is the study of how food and drink affect your body. It involves understanding the nutrients that are essential for growth, metabolism, and maintaining overall health.</p>
+        
+        <div class="module-section">
+            <h3>1. The Macronutrients</h3>
+            <p>**Macronutrients** are the major components of our food that our body needs in large amounts for energy. They include **Carbohydrates** (the body's main fuel source), **Proteins** (essential for building and repairing tissues), and **Fats** (important for energy storage and absorbing vitamins).</p>
+        </div>
+        
+        <div class="module-section">
+            <h3>2. The Micronutrients</h3>
+            <p>**Micronutrients** are vitamins and minerals that our body needs in much smaller amounts. **Vitamins** (like Vitamin C and D) are crucial for immune function and many bodily processes. **Minerals** (like calcium and iron) are vital for bone health and blood production.</p>
+        </div>
+        
+        <div class="module-section">
+            <h3>3. The Importance of Hydration</h3>
+            <p>Water is a vital nutrient. Staying **hydrated** is key for regulating body temperature, lubricating joints, transporting nutrients, and flushing out waste. Dehydration can lead to fatigue and poor concentration.</p>
+        </div>
+        
+        <div class="module-section">
+            <h3>4. Balanced Diet and Meal Planning</h3>
+            <p>A **balanced diet** involves eating a variety of foods from all the food groups to get all the necessary nutrients. **Meal planning** helps you make smart food choices, manage portion sizes, and ensure you're getting a consistent supply of nutrients throughout the day.</p>
+        </div>
+        
+        <div class="ai-assistant-section">
+            <h3>Ask the Knowledge Navigator AI!</h3>
+            <p>Confused about a concept? Ask the AI to explain it in a simpler way. Just type your question below.</p>
+            <form action="/ai-explain" method="POST">
+                <input type="text" name="question" placeholder="e.g., What are antioxidants?" required>
+                <button type="submit"><i class="fas fa-magic"></i> Get Explanation</button>
+            </form>
+            <div id="ai-response-container" class="ai-response">
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Knowledge Navigator. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

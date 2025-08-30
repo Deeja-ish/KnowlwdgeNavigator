@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Tour of the Human Body | Knowledge Navigator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Knowledge Navigator</h1>
+            <div class="user-info">
+                <span>Welcome, {{ username }}!</span>
+                <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="module-content">
+        <h2>A Tour of the Human Body</h2>
+        <p class="module-intro">Human anatomy is the scientific study of the body's structures. It's an incredible field that explores how all the different parts of a human work together to keep us alive and well.</p>
+        
+        <div class="module-section">
+            <h3>The Skeletal System</h3>
+            <p>Your **skeletal system** is the body's framework. It's made up of over 200 bones that provide support, protect your vital organs, and allow you to move. Think of it as the scaffolding that holds your body in shape.</p>
+        </div>
+        
+        <div class="module-section">
+            <h3>The Muscular System</h3>
+            <p>Working closely with your skeleton is the **muscular system**. Your muscles are responsible for all types of movement, from lifting weights to the beating of your heart. There are three main types of muscles: skeletal, smooth, and cardiac.</p>
+        </div>
+        
+        <div class="module-section">
+            <h3>The Circulatory System</h3>
+            <p>The **circulatory system**, often called the cardiovascular system, is like the body's transportation network. It's made up of your heart, blood, and blood vessels. Its job is to pump blood throughout your body, delivering oxygen and nutrients to every cell.</p>
+        </div>
+        
+        <div class="ai-assistant-section">
+            <h3>Ask the Knowledge Navigator AI!</h3>
+            <p>Confused about a concept? Ask the AI to explain it in a simpler way. Just type your question below.</p>
+            <form action="/ai-explain" method="POST">
+                <input type="text" name="question" placeholder="e.g., How does the nervous system work?" required>
+                <button type="submit"><i class="fas fa-magic"></i> Get Explanation</button>
+            </form>
+            <div id="ai-response-container" class="ai-response">
+                </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Knowledge Navigator. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

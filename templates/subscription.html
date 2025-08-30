@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription | Knowledge Navigator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Knowledge Navigator</h1>
+            <div class="user-info">
+                <span>Welcome, {{ username }}!</span>
+                <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="module-content">
+        <h2>Unlock Your Full Potential</h2>
+        <p class="module-intro">Become a Pro Member to get unlimited access to all learning modules and exclusive content. Your support helps us build a better learning platform for everyone.</p>
+
+        <div class="module-section" style="text-align: center;">
+            <h3>Pro Membership: NGN 5.00/month</h3>
+            <p>Access all current and future learning modules.</p>
+            <form action="/create-paystack-payment" method="POST">
+                <button type="submit" class="explore-btn" id="checkout-button">
+                    <i class="fas fa-lock-open"></i> Subscribe Now
+                </button>
+            </form>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Knowledge Navigator. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Science Fundamentals | Knowledge Navigator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Knowledge Navigator</h1>
+            <div class="user-info">
+                <span>Welcome, {{ username }}!</span>
+                <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="module-content">
+        <a href="{{ url_for('modules_page') }}" class="back-btn">&larr; Back to Modules</a>
+        <h2>Data Science Fundamentals</h2>
+        <p class="module-intro">Data science is the interdisciplinary field that uses scientific methods, processes, algorithms, and systems to extract knowledge and insights from structured and unstructured data.</p>
+        
+        <div class="module-section">
+            <h3>1. The Data Science Process</h3>
+            <p>The journey of a data scientist typically follows a specific process. It begins with **Problem Formulation**, where the question to be answered is clearly defined. This is followed by **Data Collection**, where relevant data is gathered from various sources. The most time-consuming step is **Data Cleaning and Preparation**, ensuring the data is accurate and ready for analysis.</p>
+        </div>
+        
+        <div class="module-section">
+            <h3>2. Data Analysis & Exploration</h3>
+            <p>Once the data is clean, the next step is **Exploratory Data Analysis (EDA)**. This involves summarizing the data's main characteristics, often with visualizations. It helps to discover patterns, spot anomalies, and form hypotheses. Tools like Python libraries (Pandas and Matplotlib) are widely used for this.</p>
+        </div>
+        
+        <div class="module-section">
+            <h3>3. Modeling & Machine Learning</h3>
+            <p>This is where data science gets powerful. **Machine learning models** are algorithms that can learn from data to make predictions or decisions. This stage involves choosing the right model, training it with your data, and evaluating its performance. Common types of models include linear regression for predictions and clustering for grouping data.</p>
+        </div>
+        
+        <div class="module-section">
+            <h3>4. Communication of Results</h3>
+            <p>The final step is to communicate your findings effectively. This involves creating compelling data visualizations, reports, and presentations that explain the insights gained from the data. The goal is to tell a clear story that helps stakeholders make informed decisions.</p>
+        </div>
+        
+        <div class="ai-assistant-section">
+            <h3>Ask the Knowledge Navigator AI!</h3>
+            <p>Confused about a concept? Ask the AI to explain it in a simpler way. Just type your question below.</p>
+            <form action="/ai-explain" method="POST">
+                <input type="text" name="question" placeholder="e.g., What is linear regression?" required>
+                <button type="submit"><i class="fas fa-magic"></i> Get Explanation</button>
+            </form>
+            <div id="ai-response-container" class="ai-response">
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Knowledge Navigator. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

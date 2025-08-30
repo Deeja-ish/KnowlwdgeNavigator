@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Climate Change | Knowledge Navigator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Knowledge Navigator</h1>
+            <div class="user-info">
+                <span>Welcome, {{ username }}!</span>
+                <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="module-content">
+        <a href="{{ url_for('modules_page') }}" class="back-btn">&larr; Back to Modules</a>
+        <h2>Introduction to Climate Change</h2>
+        <p class="module-intro">Climate change refers to long-term shifts in temperatures and weather patterns. These shifts may be natural, but since the 1800s, human activities have been the main driver of climate change, primarily due to the burning of fossil fuels.</p>
+        
+        <div class="module-section">
+            <h3>1. The Greenhouse Effect</h3>
+            <p>The **greenhouse effect** is a natural process that warms the Earth's surface. Gases in the atmosphere, like carbon dioxide (CO₂) and methane, trap heat from the sun. While this is necessary for life, human activity has increased these gases, trapping more heat and causing the planet to warm up.</p>
+        </div>
+        
+        <div class="module-section">
+            <h3>2. Key Causes of Climate Change</h3>
+            <p>The biggest driver is the burning of **fossil fuels** (coal, oil, and gas) for electricity, heat, and transportation. Other major causes include deforestation, which removes trees that absorb CO₂, and industrial processes that release harmful gases.</p>
+        </div>
+        
+        <div class="module-section">
+            <h3>3. Effects of a Warming Planet</h3>
+            <p>The consequences of climate change are widespread. They include rising global temperatures, melting glaciers and ice sheets, rising sea levels, more frequent and severe heatwaves, and disruptions to ecosystems and agriculture. These changes can have a huge impact on human society.</p>
+        </div>
+        
+        <div class="module-section">
+            <h3>4. Solutions and Mitigation</h3>
+            <p>To combat climate change, we must reduce greenhouse gas emissions. Solutions include transitioning to **renewable energy** (solar, wind), improving energy efficiency, adopting sustainable practices, and promoting conservation efforts globally.</p>
+        </div>
+        
+        <div class="ai-assistant-section">
+            <h3>Ask the Knowledge Navigator AI!</h3>
+            <p>Confused about a concept? Ask the AI to explain it in a simpler way. Just type your question below.</p>
+            <form action="/ai-explain" method="POST">
+                <input type="text" name="question" placeholder="e.g., What are fossil fuels?" required>
+                <button type="submit"><i class="fas fa-magic"></i> Get Explanation</button>
+            </form>
+            <div id="ai-response-container" class="ai-response">
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Knowledge Navigator. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
