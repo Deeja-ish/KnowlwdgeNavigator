@@ -8,6 +8,7 @@ from paystackapi.paystack import Paystack as PaystackAPI
 from paystackapi.transaction import Transaction # CORRECT IMPORT
 import traceback
 import sys
+from urllib.parse import urlparse
 
 # IMPORTANT: Load environment variables at the very beginning
 load_dotenv() 
@@ -33,20 +34,21 @@ db_config = {
 
 def get_db_connection():
     """Establishes a connection to the MySQL database."""
-    # Check if a database URL environment variable exists
     if 'DATABASE_URL' in os.environ:
-        # Use the URL provided by the hosting service (e.g., Render)
-        url = os.environ['DATABASE_URL']
-        url_parts = mysql.connector.url.parse_url(url)
-        return mysql.connector.connect(
-            user=url_parts['user'],
-            password=url_parts['password'],
-            host=url_parts['host'],
-            database=url_parts['database'],
-            port=url_parts.get('port', 3306) # Default port for MySQL
-        )
+        # Use urlparse to break down the DATABASE_URL string
+        url = urlparse(os.environ['DATABASE_URL'])
+        
+        # Check if the URL scheme is 'mysql' or 'mysql+pymysql'
+        if url.scheme in ['mysql', 'mysql+pymysql']:
+            return mysql.connector.connect(
+                user=url.username,
+                password=url.password,
+                host=url.hostname,
+                port=url.port if url.port else 3306,
+                database=url.path[1:]
+            )
     else:
-        # Use local configuration for development
+        # Your local configuration will be used for development
         return mysql.connector.connect(**db_config)
 
 
