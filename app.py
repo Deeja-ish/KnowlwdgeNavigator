@@ -6,6 +6,8 @@ import mysql.connector
 from dotenv import load_dotenv
 from paystackapi.paystack import Paystack as PaystackAPI
 from paystackapi.transaction import Transaction # CORRECT IMPORT
+import traceback
+import sys
 
 # IMPORTANT: Load environment variables at the very beginning
 load_dotenv() 
@@ -83,7 +85,9 @@ def login_page():
             flash('Invalid username or password.', 'error')
             return render_template('login.html')
 
-    except mysql.connector.Error:
+    except Exception as e:
+        print(f"Login database error: {e}", file=sys.stderr)
+        traceback.print_exc(file=sys.stderr)
         flash('Database error. Please try again later.', 'error')
         return render_template('login.html')
 
@@ -124,7 +128,10 @@ def register_page():
         flash('Registration successful! Please log in.')
         return redirect(url_for('login_page'))
 
-    except mysql.connector.Error:
+    except Exception as e:
+        # This will now print the full traceback to the logs
+        print(f"Registration database error: {e}", file=sys.stderr)
+        traceback.print_exc(file=sys.stderr)
         flash('An error occurred while registering. Please try again.', 'error')
         return render_template('register.html')
 
