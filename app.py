@@ -31,7 +31,21 @@ db_config = {
 
 def get_db_connection():
     """Establishes a connection to the MySQL database."""
-    return mysql.connector.connect(**db_config)
+    # Check if a database URL environment variable exists
+    if 'DATABASE_URL' in os.environ:
+        # Use the URL provided by the hosting service (e.g., Render)
+        url = os.environ['DATABASE_URL']
+        url_parts = mysql.connector.url.parse_url(url)
+        return mysql.connector.connect(
+            user=url_parts['user'],
+            password=url_parts['password'],
+            host=url_parts['host'],
+            database=url_parts['database'],
+            port=url_parts.get('port', 3306) # Default port for MySQL
+        )
+    else:
+        # Use local configuration for development
+        return mysql.connector.connect(**db_config)
 
 
 @app.route('/')
@@ -328,3 +342,11 @@ def paystack_callback():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+
+
+
+
+
+
